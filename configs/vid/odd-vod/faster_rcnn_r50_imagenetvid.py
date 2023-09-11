@@ -22,4 +22,3 @@ lr_config = dict(
 total_epochs = 7
 evaluation = dict(metric=['bbox'], interval=7)
 fp16 = dict(loss_scale=512.)
-    

@@ -6,6 +6,17 @@ _base_ = [
 model = dict(
     type='SingleFasterRcnn')
 
+# dataset settings
+data_root = 'data/ILSVRC/'
+data = dict(
+    val=dict(
+        load_as_video=False,
+        ann_file=data_root + 'annotations/imagenet_det_30plus1cls.json',
+        img_prefix=data_root + 'Data/DET'),
+    test=dict(
+        load_as_video=False,
+        ann_file=data_root + 'annotations/imagenet_det_30plus1cls.json',
+        img_prefix=data_root + 'Data/DET'))
 
 # optimizer
 optimizer = dict(type='SGD', lr=0.00375, momentum=0.9, weight_decay=0.0001)
@@ -22,4 +33,3 @@ lr_config = dict(
 total_epochs = 7
 evaluation = dict(metric=['bbox'], interval=7)
 fp16 = dict(loss_scale=512.)
-    
